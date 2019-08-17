@@ -1,0 +1,6 @@
+name: gyst-dev
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - sphinx
