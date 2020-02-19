@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Airflow &#8212; gyst 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Postgres" href="postgres.html" />
+    <link rel="prev" title="Byobu" href="byobu.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="airflow">
+<h1>Airflow<a class="headerlink" href="#airflow" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name airflow -c conda-forge airflow-with-postgres
+$ conda activate airflow
+</pre></div>
+</div>
+<p>Follow <a class="reference external" href="https://vujade.co/install-apache-airflow-ubuntu-18-04/">these directions</a> to create a new user and database for airflow. In my situation, I named both the user and the database “airflow”.</p>
+<p>Make the following changes to <cite>~/airflow/airflow.cfg</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sql_alchemy_conn</span> <span class="o">=</span> <span class="n">postgresql</span><span class="o">+</span><span class="n">psycopg2</span><span class="p">:</span><span class="o">//</span><span class="n">airflow</span><span class="nd">@localhost</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">airflow</span>
+<span class="n">broker_url</span> <span class="o">=</span> <span class="n">amqp</span><span class="p">:</span><span class="o">//</span><span class="n">airflow</span><span class="nd">@localhost</span><span class="p">:</span><span class="mi">5672</span><span class="o">//</span>
+<span class="n">result_backend</span> <span class="o">=</span> <span class="n">amqp</span><span class="p">:</span><span class="o">//</span><span class="n">airflow</span><span class="nd">@localhost</span><span class="p">:</span><span class="mi">5672</span><span class="o">//</span>
+</pre></div>
+</div>
+<p>Add the following line to your <cite>.bashrc</cite> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">AIRFLOW_HOME</span><span class="o">=~/</span><span class="n">airflow</span>
+</pre></div>
+</div>
+<p>Initalize the Airflow database for the first time</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ airflow initdb
+</pre></div>
+</div>
+<p>Start the Airflow Scheduler and Web Server</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ airflow scheduler
+$ airflow webserver
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">gyst</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liquidprompt.html">Liquid Prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="byobu.html">Byobu</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Airflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgres.html">Postgres</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="byobu.html" title="previous chapter">Byobu</a></li>
+      <li>Next: <a href="postgres.html" title="next chapter">Postgres</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Curtis Hampton.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/airflow.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
