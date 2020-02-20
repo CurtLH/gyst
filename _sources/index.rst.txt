@@ -8,7 +8,3 @@ This website is to remind myself how to setup my machine. Maybe you might also f
 
    install/index
 
-Search
-======
-
-* :ref:`search`
