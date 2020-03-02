@@ -12,3 +12,4 @@ Installation
    byobu
    postgres
    airflow
+   github_site
