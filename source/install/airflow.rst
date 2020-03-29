@@ -79,3 +79,16 @@ Create the following files to control Airflow using `systemctl`
 
    [Install]
    WantedBy=multi-user.target
+
+Update `systemctl` configuration:
+
+.. code-block::
+   
+   sudo systemctl daemon-reload
+   
+Check the status of Airflow
+
+.. code-block:: 
+
+   sudo systemctl status airflow-scheduler
+   sudo systemctl status airflow-webserver
