@@ -58,6 +58,46 @@ $ conda activate airflow
 $ airflow webserver
 </pre></div>
 </div>
+<p>Create the following files to control Airflow using <cite>systemctl</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># contents of /etc/systemd/system/airflow-scheduler
+[Unit]
+Description=Airflow scheduler daemon
+After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+[Service]
+Environment=PATH=/home/curtis/miniconda3/envs/airflow/bin:$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+User=curtis
+Group=curtis
+Type=simple
+ExecStart=/home/curtis/miniconda3/envs/airflow/bin/airflow scheduler
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># contents of /etc/systemd/system/airflow-webserver.service
+[Unit]
+Description=Airflow webserver daemon
+After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+[Service]
+Environment=PATH=/home/curtis/miniconda3/envs/airflow/bin:$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+User=curtis
+Group=curtis
+Type=simple
+ExecStart=/home/curtis/miniconda3/envs/airflow/bin/airflow webserver -p 8085 --pid /home/curtis/airflow/airflow-webserver.pid
+Restart=on-failure
+RestartSec=5s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
 </div>
 
 
@@ -118,7 +158,7 @@ $ airflow webserver
       &copy;2019, Curtis Hampton.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

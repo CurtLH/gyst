@@ -36,3 +36,46 @@ Start the Airflow Scheduler and Web Server
 
    $ airflow scheduler
    $ airflow webserver
+   
+Create the following files to control Airflow using `systemctl`
+
+.. code-block::
+
+   # contents of /etc/systemd/system/airflow-scheduler
+   [Unit]
+   Description=Airflow scheduler daemon
+   After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+   Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+   [Service]
+   Environment=PATH=/home/curtis/miniconda3/envs/airflow/bin:$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+   User=curtis
+   Group=curtis
+   Type=simple
+   ExecStart=/home/curtis/miniconda3/envs/airflow/bin/airflow scheduler
+   Restart=always
+   RestartSec=5s
+
+   [Install]
+   WantedBy=multi-user.target
+
+.. code-block:: 
+
+   # contents of /etc/systemd/system/airflow-webserver.service
+   [Unit]
+   Description=Airflow webserver daemon
+   After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+   Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+   [Service]
+   Environment=PATH=/home/curtis/miniconda3/envs/airflow/bin:$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+   User=curtis
+   Group=curtis
+   Type=simple
+   ExecStart=/home/curtis/miniconda3/envs/airflow/bin/airflow webserver -p 8085 --pid /home/curtis/airflow/airflow-webserver.pid
+   Restart=on-failure
+   RestartSec=5s
+   PrivateTmp=true
+
+   [Install]
+   WantedBy=multi-user.target
