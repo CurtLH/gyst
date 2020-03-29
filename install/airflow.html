@@ -98,6 +98,15 @@ PrivateTmp=true
 WantedBy=multi-user.target
 </pre></div>
 </div>
+<p>Update <cite>systemctl</cite> configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+</pre></div>
+</div>
+<p>Check the status of Airflow</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">status</span> <span class="n">airflow</span><span class="o">-</span><span class="n">scheduler</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">status</span> <span class="n">airflow</span><span class="o">-</span><span class="n">webserver</span>
+</pre></div>
+</div>
 </div>
 
 
