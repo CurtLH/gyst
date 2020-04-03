@@ -5,6 +5,7 @@ Installation
    :maxdepth: 2
    :caption: Contents:
 
+   ubuntu
    git
    conda
    hub
