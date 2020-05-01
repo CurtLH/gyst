@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Byobu &#8212; gyst 0.1.0 documentation</title>
+    <title>Crontab &#8212; gyst 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -14,8 +14,7 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Postgres" href="postgres.html" />
-    <link rel="prev" title="Liquid Prompt" href="liquidprompt.html" />
+    <link rel="prev" title="Tips" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -32,13 +31,15 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="byobu">
-<h1>Byobu<a class="headerlink" href="#byobu" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">byobu</span>
+  <div class="section" id="crontab">
+<h1>Crontab<a class="headerlink" href="#crontab" title="Permalink to this headline">¶</a></h1>
+<p>In order to have <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> recognize your environment variables, edit <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> and add the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BASH_ENV</span><span class="o">=</span><span class="s2">&quot;/home/ec2-user/.bashrc&quot;</span>
+
+<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="n">bash</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/</span><span class="n">my_script</span><span class="o">.</span><span class="n">sh</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">cron</span><span class="o">-</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>Follow <a class="reference external" href="https://superuser.com/a/712613">these directions</a> to run byobu whenever you open a new terminal window.</p>
-<p>To install <code class="code docutils literal notranslate"><span class="pre">byobu</span></code> on an AWS EC2, follow <a class="reference external" href="https://stackoverflow.com/a/30599606/3420371">these direction</a>.</p>
+<p><a class="reference external" href="https://unix.stackexchange.com/a/362777/62141">https://unix.stackexchange.com/a/362777/62141</a></p>
 </div>
 
 
@@ -59,17 +60,16 @@
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/index.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tips</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Installation</a><ul>
-      <li>Previous: <a href="liquidprompt.html" title="previous chapter">Liquid Prompt</a></li>
-      <li>Next: <a href="postgres.html" title="next chapter">Postgres</a></li>
+  <li><a href="index.html">Tips</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Tips</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -104,7 +104,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/install/byobu.rst.txt"
+      <a href="../_sources/tips/crontab.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
