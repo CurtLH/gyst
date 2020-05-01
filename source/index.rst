@@ -7,4 +7,4 @@ This website is to remind myself how to setup my machine. Maybe you might also f
    :maxdepth: 1
 
    install/index
-
+   tips/index
