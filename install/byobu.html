@@ -4,9 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Byobu &#8212; gyst 0.1.0 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -39,6 +40,10 @@
 </div>
 <p>Follow <a class="reference external" href="https://superuser.com/a/712613">these directions</a> to run byobu whenever you open a new terminal window.</p>
 <p>To install <code class="code docutils literal notranslate"><span class="pre">byobu</span></code> on an AWS EC2, follow <a class="reference external" href="https://stackoverflow.com/a/30599606/3420371">these direction</a>.</p>
+<p>Make sure to add the following to your <code class="code docutils literal notranslate"><span class="pre">.bash_profile</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_byobu_sourced</span><span class="o">=</span><span class="mi">1</span> <span class="o">.</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">byobu</span><span class="o">-</span><span class="n">launch</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -100,7 +105,7 @@
       &copy;2019, Curtis Hampton.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
