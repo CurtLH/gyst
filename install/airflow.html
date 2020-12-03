@@ -35,8 +35,8 @@
             
   <div class="section" id="airflow">
 <h1>Airflow<a class="headerlink" href="#airflow" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name airflow -c conda-forge airflow-with-postgres
-$ conda activate airflow
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">airflow</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">airflow</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">postgres</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">airflow</span>
 </pre></div>
 </div>
 <p>Follow <a class="reference external" href="https://vujade.co/install-apache-airflow-ubuntu-18-04/">these directions</a> to create a new user and database for airflow. In my situation, I named both the user and the database “airflow”.</p>
@@ -51,12 +51,12 @@ $ conda activate airflow
 </pre></div>
 </div>
 <p>Initalize the Airflow database for the first time</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ airflow initdb
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airflow</span> <span class="n">initdb</span>
 </pre></div>
 </div>
 <p>Start the Airflow Scheduler and Web Server</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ airflow scheduler
-$ airflow webserver
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airflow</span> <span class="n">scheduler</span>
+<span class="n">airflow</span> <span class="n">webserver</span>
 </pre></div>
 </div>
 <p>Create the following files to control Airflow using <cite>systemctl</cite></p>
