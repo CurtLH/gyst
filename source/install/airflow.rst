@@ -3,8 +3,8 @@ Airflow
 
 .. code-block::
 
-   $ conda create --name airflow -c conda-forge airflow-with-postgres
-   $ conda activate airflow
+   conda create --name airflow -c conda-forge airflow-with-postgres
+   conda activate airflow
 
 
 Follow `these directions <https://vujade.co/install-apache-airflow-ubuntu-18-04/>`_ to create a new user and database for airflow. In my situation, I named both the user and the database "airflow".
@@ -28,14 +28,14 @@ Initalize the Airflow database for the first time
 
 .. code-block::
 
-    $ airflow initdb
+    airflow initdb
 
 Start the Airflow Scheduler and Web Server
 
 .. code-block::
 
-   $ airflow scheduler
-   $ airflow webserver
+   airflow scheduler
+   airflow webserver
    
 Create the following files to control Airflow using `systemctl`
 
