@@ -3,4 +3,4 @@ Hub
 
 .. code-block::
 
-   $ conda install -c conda-forge hub
+   conda install -c conda-forge hub
