@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crontab &#8212; gyst 0.1.0 documentation</title>
+    <title>SSH Config &#8212; gyst 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -14,8 +14,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SSH Config" href="ssh_config.html" />
-    <link rel="prev" title="Tips" href="index.html" />
+    <link rel="prev" title="Crontab" href="crontab.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -32,15 +31,22 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="crontab">
-<h1>Crontab<a class="headerlink" href="#crontab" title="Permalink to this headline">¶</a></h1>
-<p>In order to have <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> recognize your environment variables, edit <code class="code docutils literal notranslate"><span class="pre">crontab</span></code> and add the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BASH_ENV</span><span class="o">=</span><span class="s2">&quot;/home/ec2-user/.bashrc&quot;</span>
+  <div class="section" id="ssh-config">
+<h1>SSH Config<a class="headerlink" href="#ssh-config" title="Permalink to this headline">¶</a></h1>
+<p>Using a <code class="code docutils literal notranslate"><span class="pre">.ssh/config</span></code> file, you store IP addresses for remote machines that you regularily connect to.</p>
+<p><a class="reference external" href="https://linuxize.com/post/using-the-ssh-config-file/">https://linuxize.com/post/using-the-ssh-config-file/</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">aws</span><span class="o">-</span><span class="n">dev</span>
+        <span class="n">HostName</span> <span class="n">dev</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+        <span class="n">User</span> <span class="n">ec2</span><span class="o">-</span><span class="n">user</span>
+        <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">key</span><span class="o">.</span><span class="n">pem</span>
 
-<span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="n">bash</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/</span><span class="n">my_script</span><span class="o">.</span><span class="n">sh</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">cron</span><span class="o">-</span><span class="n">log</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<span class="n">Host</span> <span class="n">aws</span><span class="o">-</span><span class="n">bastion</span>
+        <span class="n">User</span> <span class="n">ec2</span><span class="o">-</span><span class="n">user</span>
+        <span class="n">Hostname</span> <span class="n">bastion</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+        <span class="n">Localforward</span> <span class="mi">5432</span> <span class="n">db</span><span class="o">.</span><span class="n">rds</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">5432</span>
+        <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">key</span><span class="o">.</span><span class="n">pem</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://unix.stackexchange.com/a/362777/62141">https://unix.stackexchange.com/a/362777/62141</a></p>
 </div>
 
 
@@ -70,8 +76,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Tips</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Tips</a></li>
-      <li>Next: <a href="ssh_config.html" title="next chapter">SSH Config</a></li>
+      <li>Previous: <a href="crontab.html" title="previous chapter">Crontab</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -106,7 +111,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/tips/crontab.rst.txt"
+      <a href="../_sources/tips/ssh_config.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

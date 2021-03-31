@@ -6,3 +6,4 @@ Tips
    :caption: Contents:
 
    crontab
+   ssh_config
